@@ -1,0 +1,199 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://tabletop.png" type="Texture" id=1]
+[ext_resource path="res://cargo.png" type="Texture" id=2]
+[ext_resource path="res://Force.tres" type="Theme" id=3]
+[ext_resource path="res://Force.gd" type="Script" id=4]
+[ext_resource path="res://SLider.png" type="Texture" id=5]
+[ext_resource path="res://Text.tres" type="Theme" id=6]
+[ext_resource path="res://SeekPng.com_goatee-png_9703070.png" type="Texture" id=7]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.7401, 6.38713 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 79.5, 74 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 7 )
+region = Rect2( 141, 484, 47, 44 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 7 )
+region = Rect2( 188, 484, 47, 44 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 7 )
+region = Rect2( 235, 484, 47, 44 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Force" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" parent="." instance=ExtResource( 8 )]
+
+[node name="TableTop" type="StaticBody2D" parent="."]
+position = Vector2( -560, -72 )
+scale = Vector2( 2.223, 1.32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableTop"]
+position = Vector2( 504.921, 439.275 )
+scale = Vector2( 8, 8.04688 )
+shape = SubResource( 1 )
+
+[node name="Tabletop" type="Sprite" parent="TableTop"]
+position = Vector2( 500, 403.25 )
+scale = Vector2( 8, 8.04688 )
+texture = ExtResource( 1 )
+
+[node name="SLider" type="Sprite" parent="."]
+position = Vector2( 192, 432 )
+scale = Vector2( 10.5, 5.5 )
+texture = ExtResource( 5 )
+
+[node name="SLider2" type="Sprite" parent="."]
+position = Vector2( 464, 560 )
+rotation = 3.14159
+scale = Vector2( 12, 6 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 336.0
+margin_right = 466.0
+margin_bottom = 426.0
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "FORCE PLACE HOLDER"
+
+[node name="Sugar" type="RigidBody2D" parent="."]
+position = Vector2( 504, 376 )
+scale = Vector2( 1.65204, 1.48622 )
+
+[node name="Cargo" type="Sprite" parent="Sugar"]
+scale = Vector2( 5.15625, 4.75781 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sugar"]
+position = Vector2( -0.5, 1 )
+shape = SubResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Sugar"]
+position = Vector2( -145.275, -5.38278 )
+scale = Vector2( 3.56383, 3.77273 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="Mass" type="HSlider" parent="."]
+margin_left = 320.0
+margin_top = 25.0
+margin_right = 683.0
+margin_bottom = 99.0
+theme = ExtResource( 3 )
+min_value = 1.0
+step = 10.0
+value = 1.0
+
+[node name="Velocity Left" type="HSlider" parent="."]
+margin_left = 16.0
+margin_top = 392.0
+margin_right = 288.0
+margin_bottom = 466.0
+theme = ExtResource( 3 )
+min_value = 200.0
+max_value = 300.0
+step = 10.0
+value = 200.0
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 368.0
+margin_top = 512.0
+margin_right = 827.0
+margin_bottom = 602.0
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "FRICTION PLACE HOLDER"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 356.0
+margin_top = 7.0
+margin_right = 798.0
+margin_bottom = 97.0
+theme = ExtResource( 6 )
+text = "MASS PLACE HOLDER"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 904.0
+margin_top = 8.0
+margin_right = 1017.0
+margin_bottom = 80.0
+theme = ExtResource( 6 )
+text = "RESET"
+
+[node name="Menu" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 118.0
+margin_bottom = 77.0
+rect_pivot_offset = Vector2( 55, 35 )
+theme = ExtResource( 6 )
+text = "Next"
+
+[node name="Def" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 88.0
+margin_right = 118.0
+margin_bottom = 157.0
+rect_pivot_offset = Vector2( 55, 35 )
+theme = ExtResource( 6 )
+text = " Define "
+
+[node name="Popup" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="PauseMenu" type="TextEdit" parent="Popup"]
+margin_left = 208.0
+margin_top = 104.0
+margin_right = 792.0
+margin_bottom = 464.0
+theme = ExtResource( 6 )
+custom_colors/font_color_readonly = Color( 0, 0, 0, 1 )
+text = " 
+ Friction Defination:-
+
+  Friction is the resistance force offered by the surfaces that are in contact when they move past each other.
+
+ "
+readonly = true
+hiding_enabled = true
+wrap_enabled = true
+
+[node name="Button2" type="Button" parent="Popup"]
+margin_left = 184.0
+margin_top = 88.0
+margin_right = 262.0
+margin_bottom = 150.0
+theme = ExtResource( 6 )
+text = " >< "
+
+[connection signal="value_changed" from="Mass" to="." method="_on_Mass_value_changed"]
+[connection signal="value_changed" from="Mass" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Velocity Left" to="." method="_on_Velocity_Left_value_changed"]
+[connection signal="value_changed" from="Velocity Left" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="Def" to="." method="_on_Def_pressed"]
+[connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="Popup/Button2" to="." method="_on_Button2_pressed"]

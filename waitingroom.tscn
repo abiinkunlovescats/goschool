@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Text.tres" type="Theme" id=1]
+[ext_resource path="res://SeekPng.com_goatee-png_9703070.png" type="Texture" id=2]
+[ext_resource path="res://Title.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 47, 49, 47, 49 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 94, 49, 47, 49 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 141, 49, 47, 49 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="WaitingRoom" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+position = Vector2( 514, 278 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 279.0
+margin_top = 171.0
+margin_right = 664.0
+margin_bottom = 273.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Loading"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 479, 385 )
+scale = Vector2( 4.23936, 3.77041 )
+frames = SubResource( 4 )
+playing = true
