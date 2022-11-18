@@ -23,7 +23,7 @@ func _ready():
 func _process(delta):
 	if counting:
 		count += delta
-	pl.set_text('Power: %d Watt' % [work/count])
+		pl.set_text('Power: %d Watt' % [work/count])
 	#var velocity = Slider.value;
 	#Sugar.add_force(Vector2(velocity,0),Vector2(velocity,0))
 #	pass
