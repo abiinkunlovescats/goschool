@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://tabletop.png" type="Texture" id=1]
+[ext_resource path="res://slidergrabber.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 1, 1, 1, 1 )
+thickness = 10
+
+[sub_resource type="StyleBoxLine" id=3]
+color = Color( 1, 1, 1, 1 )
+thickness = 10
+
+[sub_resource type="StyleBoxLine" id=4]
+grow_begin = -2.0
+grow_end = -11.0
+thickness = 10
+
+[resource]
+Button/styles/normal = null
+HSlider/icons/grabber = ExtResource( 2 )
+HSlider/icons/grabber_highlight = ExtResource( 2 )
+HSlider/icons/tick = ExtResource( 1 )
+HSlider/styles/grabber_area = SubResource( 2 )
+HSlider/styles/grabber_area_highlight = SubResource( 3 )
+HSlider/styles/slider = SubResource( 4 )

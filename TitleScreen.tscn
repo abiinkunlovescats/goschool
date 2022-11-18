@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Text.tres" type="Theme" id=1]
+[ext_resource path="res://TitleScreen.gd" type="Script" id=2]
+[ext_resource path="res://Title.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=4]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="Force" type="Button" parent="."]
+margin_left = 394.0
+margin_top = 281.0
+margin_right = 589.0
+margin_bottom = 360.0
+theme = ExtResource( 1 )
+text = "Start"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 247.0
+margin_top = 100.0
+margin_right = 852.0
+margin_bottom = 202.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "EMP Project"
+
+[connection signal="pressed" from="Force" to="." method="_on_Force_pressed"]
